@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "5ab66f61-a1a7-4131-b36e-a60a5773f472",
+		"name": "Collection",
+		"description": "Эта коллекция нужна для более быстрой проверки ТЗ :)\n\nДля start/complete/cancel нужны {id} из БД.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24072306",
+		"_collection_link": "https://dark-moon-908068.postman.co/workspace/%253C%253Cx%253Czx~b9742f0e-f540-4185-bdc2-ccd1cac554e8/collection/24072306-5ab66f61-a1a7-4131-b36e-a60a5773f472?action=share&source=collection_link&creator=24072306"
+	},
+	"item": [
+		{
+			"name": "tickets",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject\": \"Проблема с логином\",\n    \"description\": \"Не могу войти в аккаунт. Забыл пароль.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/tickets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "start",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/tickets/:id/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tickets",
+						":id",
+						"start"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "complete",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"resolution\": \"Проблема с заходом в аккаунт решилась после смены пароля\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/tickets/:id/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tickets",
+						":id",
+						"complete"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cancellationReason\": \"Причина отмены - выгорание\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/tickets/:id/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tickets",
+						":id",
+						"cancel"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "date of",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/tickets?startDate=2025-05-01T00:00:01.999Z&endDate=2025-05-31T23:59:59.999Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tickets"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-05-01T00:00:01.999Z"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-05-31T23:59:59.999Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel-all",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cancellationReason\": \"Причина отмены - увольнение\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/tickets/cancel-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"tickets",
+						"cancel-all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
